@@ -58,7 +58,7 @@ async def close(ctx):
         return
 
 @client.command()
-@commands.is_owner()
+@commands.has_permissions(administrator=True)
 async def config(ctx, msg: discord.Message=None, category: discord.CategoryChannel=None): #Usage =  !config "message_id category_id" to get the ids enable deveoper mode and right click the message that will be used to create tickets and the category id is the category where the tickets will be created.
     if msg is None or category is None: #If a message id or category id is not provided.
         error_embed=discord.Embed(title="Ticket Configuration Failed",description="Failed to configure. Either an argument is missing or an invalid argument was passed.",color=discord.Colour.red())
