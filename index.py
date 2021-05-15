@@ -15,6 +15,11 @@ async def ping(ctx):
     await ctx.reply(embed=embed)
 
 @client.event
+async def on_ready():
+    print("Bot is online")
+
+
+@client.event
 async def on_raw_reaction_add(payload): #When a reaction is added
     if payload.member.id != client.user.id and str(payload.emoji) == u"\U0001F3AB": #Checks if the reaction is not made by a bot an emoji is "🎫"
         msg_id, channel_id, category_id = client.ticket_configs[payload.guild_id] 
